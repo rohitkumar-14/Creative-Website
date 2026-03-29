@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #112257; /* Deep Navy Base */
+  --text-main: #FFFFFF;
+  --text-muted: #888888;
+  --brand-orange: #7d8cff; /* Light Blue / Purple Tech Primary */
+  --brand-orange-hover: #98a5ff;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: var(--brand-orange);
+  z-index: 9999;
+  box-shadow: 0 0 10px var(--brand-orange);
+}
+
+/* Scrollbar styles to look premium */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color); 
+}
+::-webkit-scrollbar-thumb {
+  background: #333; 
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-orange); 
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+}
+
+.title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 300;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin-top: 1.5rem;
+  line-height: 1.6;
+}
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+/* Global Animated Button (3-Stage) */
+.btn-animated {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.3rem 0.5rem 0.3rem 1.6rem;
+  background-color: var(--brand-orange);
+  border-radius: 50px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 1rem;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border: 2.5px solid transparent;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.btn-animated .btn-text {
+  position: relative;
+  z-index: 3;
+  transition: color 0.4s ease;
+}
+
+.btn-animated .icon-circle {
+  width: 42px;
+  height: 42px;
+  background: #000;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+  transition: all 0.4s ease;
+}
+
+.btn-animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #000;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+.btn-animated:hover::after {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+.btn-animated:hover {
+  color: #fff;
+  border-color: var(--brand-orange);
+}
+
+.btn-animated:hover .icon-circle {
+  background: transparent;
+}
+
+.btn-animated:hover .btn-text {
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: var(--brand-orange);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background-color: var(--brand-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(125, 140, 255, 0.3);
+}
+
+@media (min-width: 1025px) {
+  html, body, a, button {
+    cursor: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn-animated {
+    padding: 0.2rem 0.4rem 0.2rem 1.2rem;
+    font-size: 0.9rem;
+    gap: 0.8rem;
+  }
+}

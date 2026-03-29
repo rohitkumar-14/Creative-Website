@@ -1,0 +1,261 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  color: #000000;
+  z-index: 10;
+}
+
+.scrollContainer {
+  position: relative;
+  width: 100%;
+  height: 600vh;
+  z-index: 10;
+}
+
+/* Ensure a clean white area for mobile */
+@media (max-width: 900px) {
+  .wrapper {
+    background: #ffffff;
+  }
+  .header h2, .header p {
+    max-width: 100% !important;
+    text-align: center;
+  }
+  .header {
+    text-align: center;
+  }
+}
+
+.stickyArea {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 2rem;
+  z-index: 20; /* Above the particles but below the particle-interactive-elements if any */
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 6rem auto;
+  width: 100%;
+}
+
+.header h4 {
+  color: #ff6b00; /* Reference Orange */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+.header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  color: #000000;
+}
+
+.header p {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.contentSplit {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  gap: 4rem;
+  position: relative;
+  min-height: 60vh;
+}
+
+.leftCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.leftCol::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.rightCol {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Service Item Styling */
+.serviceItem {
+  position: relative;
+  padding: 1.5rem 2rem 1.5rem 1rem;
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid #eee;
+  transition: all 0.4s ease;
+  cursor: default;
+  overflow: visible;
+}
+
+.serviceItem.active {
+  background-color: #1a1a1a; /* Dark charcoal like reference */
+  color: #ffffff;
+  transform: scale(1.02); /* Subtle emphasis */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border-bottom-color: transparent;
+  padding: 2.5rem 2rem; /* Larger padding for focus */
+}
+
+.indexNum {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.4s ease;
+}
+
+.serviceItem.active .indexNum {
+  color: #ff6b00;
+  font-size: 2rem; /* Big orange number */
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.readMore {
+  display: none;
+  font-size: 0.9rem;
+  color: #fff;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dropdownContent {
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.serviceItem.active .readMore {
+  display: flex;
+}
+
+.serviceItem.active .dropdownContent {
+  max-height: 200px; /* generous height for text */
+  opacity: 1;
+  visibility: visible;
+  margin-top: 1rem;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #aaa; /* Gray text against dark bg */
+  margin: 0 0 1rem 0;
+  max-width: 90%;
+}
+
+/* The vertical orange scroll indicator */
+.scrollIndicator {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #333;
+  display: none;
+}
+
+.serviceItem.active .scrollIndicator {
+  display: block;
+}
+
+.scrollProgress {
+  width: 100%;
+  height: 100%;
+  background-color: #ff6b00;
+  border-radius: 0;
+}
+
+/* Graphics Container */
+.graphicWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.graphicWrapper.active {
+  opacity: 1;
+}
+
+/* Simple graphic definitions using CSS shapes + SVGs */
+.svgPlaceholder {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+}
+
+@media (max-width: 900px) {
+  .contentSplit {
+    flex-direction: column;
+    min-height: auto;
+  }
+}
+
+/* Fix for shorter screens like laptops to prevent content clipping */
+@media (max-height: 850px) {
+  .stickyArea {
+    padding: 2rem 2rem;
+  }
+  .header {
+    margin-bottom: 2rem;
+  }
+  .header h2 {
+    font-size: 2rem;
+  }
+  .serviceItem {
+    padding: 1rem 1.5rem 1rem 1rem;
+    gap: 1rem;
+  }
+}

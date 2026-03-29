@@ -1,0 +1,133 @@
+.gameSection {
+  position: relative;
+  width: 100%;
+  padding: 8rem 0;
+  display: flex;
+  background-color: transparent;
+  color: #fff;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.secHdn {
+  text-align: center;
+}
+
+.hdnLogo {
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.logoImage {
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  object-fit: contain;
+  /* Convert black logo to solid white for dark mode visibility */
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.gamesWrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.gameBox {
+  background-color: #111111;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, border-color 0.3s;
+  opacity: 0;
+}
+
+.gameBox:hover {
+  border-color: rgba(242, 111, 33, 0.4);
+  transform: translateY(-5px);
+}
+
+.gameImg {
+  width: 100%;
+  aspect-ratio: 4/3;
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gameBox:hover .image {
+  transform: scale(1.05);
+}
+
+.gameTxt {
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.gameTxt h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.gameTxt p {
+  color: #a0a0a0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.buttonBlack {
+  display: inline-flex;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 2.5rem;
+  border-radius: 3rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.buttonBlack:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+@media (max-width: 1200px) {
+  .gamesWrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .gamesWrap {
+    grid-template-columns: 1fr;
+  }
+}

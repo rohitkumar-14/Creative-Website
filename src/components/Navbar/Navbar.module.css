@@ -1,0 +1,291 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.scrolled {
+  background: rgba(3, 3, 3, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.logo span {
+  color: var(--brand-orange, #f26f21);
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navItem {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.navLink:hover, .navLink.active {
+  color: var(--brand-orange, #f26f21);
+}
+
+.dropdownIcon {
+  color: var(--brand-orange, #f26f21);
+  transition: transform 0.3s ease;
+}
+
+.navItem:hover .dropdownIcon {
+  transform: rotate(180deg);
+}
+
+/* Mega Menu Styles */
+.megaMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  width: 90vw;
+  max-width: 1200px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1001;
+}
+
+.navItem:hover .megaMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.menuLeft {
+  background: #fff;
+  padding: 2.5rem;
+  color: #000;
+}
+
+.menuTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.primaryLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.primaryLink {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 0.3s ease;
+}
+
+.primaryLink.active {
+  color: var(--brand-orange, #f26f21);
+}
+
+.menuRight {
+  background: #0a0a0a;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.subLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.subLink {
+  color: #ccc;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.subLink:hover {
+  color: #fff;
+}
+
+.contactBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.3rem 0.5rem 0.3rem 1.6rem;
+  background-color: var(--brand-orange, #7d8cff);
+  border-radius: 50px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border: 2.5px solid transparent;
+  margin-left: 1.5rem;
+  z-index: 1;
+}
+
+.btnText {
+  position: relative;
+  z-index: 3;
+  transition: color 0.4s ease;
+}
+
+.iconCircle {
+  width: 42px;
+  height: 42px;
+  background: #112257;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+  transition: all 0.4s ease;
+}
+
+/* The blue sliding background */
+.contactBtn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #112257;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+.contactBtn:hover::after {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+.contactBtn:hover {
+  color: #fff;
+  border-color: var(--brand-orange, #7d8cff);
+}
+
+.contactBtn:hover .iconCircle {
+  background: transparent;
+}
+
+.contactBtn:hover .btnText {
+  color: #fff;
+}
+
+.mobileToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .megaMenu {
+    display: none; 
+  }
+  
+  .mobileToggle {
+    display: block;
+    z-index: 1001;
+  }
+  
+  .desktopNav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .desktopNav.mobileOpen {
+    right: 0;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .navLink {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .contactBtn {
+    margin-left: 0;
+    margin-top: 1rem;
+    transform: scale(1.1);
+  }
+}
