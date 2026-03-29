@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowRight as ArrowRightInline } from 'lucide-react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -70,7 +71,15 @@ export default function Spotlight() {
             <div className={styles.imageWrapper}>
               <div className={styles.logoTopLeft}>{card.sourceLogo}</div>
               <div className={styles.logoTopRight}>YOE<span>KII</span></div>
-              <img src={card.image} alt={card.title} className={styles.cardImage} />
+              <Image 
+                src={card.image} 
+                alt={card.title} 
+                className={styles.cardImage} 
+                width={600} 
+                height={400} 
+                style={{ objectFit: 'cover' }}
+                priority={card.id === 1}
+              />
             </div>
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>{card.title}</h3>

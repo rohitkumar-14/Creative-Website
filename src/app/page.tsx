@@ -23,7 +23,7 @@ export default function Home() {
               Draining Your Budget?
             </h1>
             <p className="subtitle" style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>
-              Yoekii's Agentic AI Platform:
+              Yoekii&apos;s Agentic AI Platform:
             </p>
             
             <div className={styles.lifterLogoWrapper}>

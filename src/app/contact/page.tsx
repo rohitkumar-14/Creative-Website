@@ -13,7 +13,7 @@ export default function ContactPage() {
             <div className={styles.infoSection}>
               <h1>Get in Touch</h1>
               <p>
-                Our experts are ready to help you navigate the future of Agentic AI and complex product engineering. Let's discuss your next breakthrough.
+                Our experts are ready to help you navigate the future of Agentic AI and complex product engineering. Let&apos;s discuss your next breakthrough.
               </p>
               
               <div className={styles.detailsGrid}>

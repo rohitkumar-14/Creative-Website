@@ -43,7 +43,7 @@ export default function CTA() {
 
           <div className={styles.commPara}>
             <p>
-              Have a challenge or a big idea? We're here to listen, innovate, and make it happen. Reach out today, and let's start shaping the future of your business.
+              Have a challenge or a big idea? We&apos;re here to listen, innovate, and make it happen. Reach out today, and let&apos;s start shaping the future of your business.
             </p>
           </div>
 

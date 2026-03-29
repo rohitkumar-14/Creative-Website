@@ -802,6 +802,7 @@ export default function ParticleScene() {
     window.addEventListener('resize', handleResize);
     window.addEventListener('mousemove', handleMouseMove);
 
+    const mountNode = mountRef.current;
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
@@ -815,14 +816,14 @@ export default function ParticleScene() {
       window.removeEventListener('CTA_SCROLL', handleCTAScroll);
       window.removeEventListener('FOOTER_SCROLL', handleFooterScroll);
       cancelAnimationFrame(rafId);
-      if (mountRef.current && mountRef.current.contains(renderer.domElement)) {
-        mountRef.current.removeChild(renderer.domElement);
+      if (mountNode && mountNode.contains(renderer.domElement)) {
+        mountNode.removeChild(renderer.domElement);
       }
       geometry.dispose();
       material.dispose();
       renderer.dispose();
     };
-  }, []);
+  }, [isContactPage]);
 
   return (
     <div
